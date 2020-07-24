@@ -126,7 +126,8 @@ while True:
 
     decision = input("""1. Create an account
 2. Log into account
-0. Exit""")
+0. Exit
+""")
 
     if decision == "1":
         new = Create()
