@@ -76,7 +76,8 @@ def log(a_login, a_password):
 """)
             if action == "1":
                 cur.execute('SELECT balance FROM card WHERE number == (?) AND pin == (?)', (a_login, a_password))
-                print("Balance:", cur.fetchall())
+                balance = cur.fetchall()
+                print("Balance:", int(balance[0][0]))
             elif action == "2":
                 income = int(input("Enter income:"))
                 cur.execute('UPDATE card SET balance = balance + (?) WHERE number == (?) AND pin == (?)',
@@ -85,7 +86,7 @@ def log(a_login, a_password):
                 print("Income was added!")
             elif action == "3":
                 print("Transfer")
-                card = input("Enter card number")
+                card = input("Enter card number:")
                 cur.execute('SELECT number FROM card WHERE number == (?)', (card,))
                 if card == a_login:
                     print("You can't transfer money to the same account!")
