@@ -150,7 +150,9 @@ while True:
             pass
         elif check == "exit":
             print("Bye!")
+            conn.close()
             break
     elif decision == "0":
         print("Bye!")
+        conn.close()
         break
